@@ -10,7 +10,9 @@ import coffeevendingmachine.state.ReadyState;
 import coffeevendingmachine.state.VendingMachineState;
 import coffeevendingmachine.decorator.Coffee;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CoffeeVendingMachine {
     private static final CoffeeVendingMachine INSTANCE = new CoffeeVendingMachine();
@@ -65,6 +67,9 @@ public class CoffeeVendingMachine {
     }
 
     public Map<String, Integer> showIngredientsMap() {
-        return ingredientStore.getAllIngredients();
+        Map<String, Integer> ingredients = new HashMap<>();
+        Inventory.getInstance().getStockSnapshot()
+                .forEach((ingredient, quantity) -> ingredients.put(ingredient.name(), quantity));
+        return ingredients;
     }
 }

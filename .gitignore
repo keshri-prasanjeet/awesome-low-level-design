@@ -2,8 +2,12 @@
 
 .vscode/
 
+.DS_Store
+*.class
+
 solutions/java/.idea/
 solutions/java/out/
+solutions/java/target/
 
 solutions/c++/.idea/
 
